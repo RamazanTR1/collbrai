@@ -1,0 +1,77 @@
+{
+	"error": {
+		"notFound": "Bulunamadı"
+	},
+	"hero": {
+		"tagline": "Düşün. Planla. Uygula.",
+		"titleLine1": "Akıllı AI Sistemleri",
+		"titleLine2": "ile Ölçeklenin",
+		"description": "İster startup ister kurumsal olun, AI'mız sizinle birlikte büyür—ölçeklenebilir otomasyon ve optimizasyon araçları sunar.",
+		"contactUs": "Bize Ulaşın",
+		"futureReady": "Geleceğe Hazır Stratejiler",
+		"support247": "7/24 Müşteri Desteği",
+		"watchAI": "AI'yı çalışırken izleyin"
+	},
+	"header": {
+		"menu": "Menü",
+		"tools": "Araçlar",
+		"signUp": "Kayıt Ol",
+		"login": "Giriş Yap",
+		"search": "Ara..."
+	},
+	"footer": {
+		"subscribe": "Bültenimize abone olun",
+		"emailPlaceholder": "E-posta adresinizi girin",
+		"forApplicants": "Başvuranlar için",
+		"forCustomer": "Müşteriler için",
+		"info": "BİLGİ",
+		"contactUs": "İletişim",
+		"shippingInformation": "Kargo Bilgileri",
+		"faqs": "SSS",
+		"additionalLink": "EK LİNK",
+		"productCustomization": "Ürün Özelleştirme",
+		"community": "Topluluk",
+		"corporateResponsibility": "Kurumsal Sorumluluk"
+	},
+	"heroAboutUs": {
+		"aboutUs": "Hakkımızda"
+	},
+	"heroFeatures": {
+		"features": "Özellikler"
+	},
+	"heroChoose": {
+		"whyChooseUs": "Neden Bizi Seçmelisiniz",
+		"moreBenefit": "Daha Fazla Avantaj"
+	},
+	"heroHowItWork": {
+		"howItWork": "Nasıl Çalışır"
+	},
+	"heroCTA": {
+		"getStartedNow": "Hemen Başlayın"
+	},
+	"contact": {
+		"title": "İletişime Geçin",
+		"description": "Projeleriniz veya sorularınız için bizimle iletişime geçmekten çekinmeyin.",
+		"form": {
+			"firstname": "Ad",
+			"lastname": "Soyad",
+			"companyName": "Şirket Adı",
+			"companyMail": "Şirket E-postası",
+			"sector": "Sektör",
+			"unit": "Birim",
+			"country": "Ülke",
+			"city": "Şehir",
+			"phoneNumber": "Telefon Numarası",
+			"message": "Mesajınız",
+			"legal": "Kişisel verilerimin işlenmesine ilişkin aydınlatma metnini okudum ve kabul ediyorum.",
+			"keepInTouch": "Kampanya ve duyurulardan haberdar olmak istiyorum.",
+			"send": "Gönder"
+		},
+		"info": {
+			"title": "İletişim Bilgileri",
+			"email": "E-posta",
+			"phone": "Telefon",
+			"address": "Adres"
+		}
+	}
+}

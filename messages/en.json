@@ -1,0 +1,77 @@
+{
+	"error": {
+		"notFound": "Not Found"
+	},
+	"hero": {
+		"tagline": "Think. Plan. Perform.",
+		"titleLine1": "Scale With Smart",
+		"titleLine2": "AI Systems",
+		"description": "Whether you're a startup or enterprise, our AI grows with you—offering scalable automation and optimization tools.",
+		"contactUs": "Contact us",
+		"futureReady": "Future-Ready Strategies",
+		"support247": "24/7 Customer Support",
+		"watchAI": "Watch AI in action"
+	},
+	"header": {
+		"menu": "Menu",
+		"tools": "Tools",
+		"signUp": "Sign Up",
+		"login": "Login",
+		"search": "Search..."
+	},
+	"footer": {
+		"subscribe": "Subscribe to our newsletter",
+		"emailPlaceholder": "Enter your email",
+		"forApplicants": "For Applicants",
+		"forCustomer": "For Customers",
+		"info": "INFO",
+		"contactUs": "Contact",
+		"shippingInformation": "Shipping Information",
+		"faqs": "FAQs",
+		"additionalLink": "ADDITIONAL LINK",
+		"productCustomization": "Product Customization",
+		"community": "Community",
+		"corporateResponsibility": "Corporate Responsibility"
+	},
+	"heroAboutUs": {
+		"aboutUs": "About Us"
+	},
+	"heroFeatures": {
+		"features": "Features"
+	},
+	"heroChoose": {
+		"whyChooseUs": "Why Choose Us",
+		"moreBenefit": "More Benefit"
+	},
+	"heroHowItWork": {
+		"howItWork": "How It Works"
+	},
+	"heroCTA": {
+		"getStartedNow": "Get Started Now"
+	},
+	"contact": {
+		"title": "Get in Touch",
+		"description": "Feel free to contact us for your projects or questions.",
+		"form": {
+			"firstname": "First Name",
+			"lastname": "Last Name",
+			"companyName": "Company Name",
+			"companyMail": "Company Email",
+			"sector": "Sector",
+			"unit": "Unit",
+			"country": "Country",
+			"city": "City",
+			"phoneNumber": "Phone Number",
+			"message": "Message",
+			"legal": "I have read and accept the privacy policy regarding the processing of my personal data.",
+			"keepInTouch": "I want to receive updates about campaigns and announcements.",
+			"send": "Send"
+		},
+		"info": {
+			"title": "Contact Information",
+			"email": "Email",
+			"phone": "Phone",
+			"address": "Address"
+		}
+	}
+}

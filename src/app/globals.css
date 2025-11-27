@@ -1,26 +1,103 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+	--background: #0e0f0e;
+	--foreground: #ffffff;
+
+	/* white variants */
+	--color-white: #ffffff;
+
+	/* green variants */
+	--color-light-green: #91ffae;
+	--color-dark-green: #31422d;
+	--color-very-dark-green: #172719;
+	--color-bright-green: #50ff47;
+	--color-medium-green: #59d279;
+
+	/* gray variants */
+	--color-light-gray: #c4c4c4;
+	--color-medium-gray: #a8a8a8;
+	--color-very-dark-gray: #1d211d;
+
+	/* orange */
+	--color-orange: #ffa600;
+
+	/* black */
+	--color-almost-black: #0e0f0e;
+
+	/* fonts */
+	--font-poppins: "Poppins", sans-serif;
+	--font-rethink-sans: "Rethink_Sans", sans-serif;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+	/* white variants */
+	--color-white: var(--color-white);
+
+	/* green variants */
+	--color-light-green: var(--color-light-green);
+	--color-dark-green: var(--color-dark-green);
+	--color-very-dark-green: var(--color-very-dark-green);
+	--color-bright-green: var(--color-bright-green);
+	--color-medium-green: var(--color-medium-green);
+
+	/* gray variants */
+	--color-light-gray: var(--color-light-gray);
+	--color-medium-gray: var(--color-medium-gray);
+	--color-very-dark-gray: var(--color-very-dark-gray);
+
+	/* orange */
+	--color-orange: var(--color-orange);
+
+	/* black */
+	--color-almost-black: var(--color-almost-black);
+
+	--font-sans: var(--font-poppins);
+	--font-rethink-sans: var(--font-rethink-sans);
+	--font-mono: var(--font-geist-mono);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+	background: var(--background);
+	color: var(--foreground);
+	font-family: var(--font-poppins);
+}
+
+h1,
+h2 {
+	font-family: var(--font-rethink-sans);
+	font-weight: 800;
+}
+
+.hero-bg {
+	position: relative;
+	background-image: none;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	z-index: 0;
+}
+
+.hero-bg::before {
+	content: "";
+	position: absolute;
+	top: -80px;
+	left: 0;
+	width: 100vw;
+	height: 120vh;
+	background-image: none;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	z-index: -1;
+	pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+	.hero-bg::before {
+		background-image: url("/hero-bg.svg");
+	}
 }
