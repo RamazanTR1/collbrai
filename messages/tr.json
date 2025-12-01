@@ -31,7 +31,15 @@
 		"additionalLink": "EK LİNK",
 		"productCustomization": "Ürün Özelleştirme",
 		"community": "Topluluk",
-		"corporateResponsibility": "Kurumsal Sorumluluk"
+		"corporateResponsibility": "Kurumsal Sorumluluk",
+		"termsOfUse": "Kullanım Koşulları",
+		"privacyPolicy": "Gizlilik Politikası",
+		"cookiePolicy": "Çerez Politikası",
+		"notificationSubscribers": {
+			"success": "Aboneliğiniz başarıyla kaydedildi.",
+			"error": "Aboneliğiniz kaydedilirken bir hata oluştu."
+		},
+		"invalidEmail": "Geçersiz e-posta adresi"
 	},
 	"heroAboutUs": {
 		"aboutUs": "Hakkımızda"
@@ -73,5 +81,15 @@
 			"phone": "Telefon",
 			"address": "Adres"
 		}
+	},
+	"legal": {
+		"termsOfUse": "Kullanım Koşulları",
+		"privacyPolicy": "Gizlilik Politikası",
+		"cookiePolicy": "Çerez Politikası"
+	},
+	"notFound": {
+		"title": "Sayfa Bulunamadı",
+		"description": "Aradığınız sayfa mevcut değil veya taşınmış olabilir.",
+		"goHome": "Ana Sayfaya Dön"
 	}
 }

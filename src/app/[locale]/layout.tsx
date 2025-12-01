@@ -5,6 +5,8 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
+import { Toaster } from "@/components/ui/sonner";
+import QueryProvider from "@/providers/query-client-provider";
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -33,9 +35,12 @@ export default async function LocaleLayout({
 
 	return (
 		<NextIntlClientProvider locale={locale} messages={messages}>
-			<Header />
-			{children}
-			<Footer />
+			<QueryProvider>
+				<Header />
+				{children}
+				<Footer />
+				<Toaster />
+			</QueryProvider>
 		</NextIntlClientProvider>
 	);
 }

@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { getPagesServer } from "@/services/server/page-service";
+import { getPages as getPagesServer } from "@/services/server/page-service";
 import { PAGE_TYPES } from "@/constants/page-types";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -31,13 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	// Fetch and add dynamic pages
 	try {
 		// Get all page types
-		const pageTypes = [
-			PAGE_TYPES.REPORTS,
-			PAGE_TYPES.OPINIONS,
-			PAGE_TYPES.NEWS,
-			PAGE_TYPES.SERVICES,
-			PAGE_TYPES.SECTORS,
-		];
+		const pageTypes = [PAGE_TYPES.HOMEPAGE];
 
 		for (const pageType of pageTypes) {
 			try {
