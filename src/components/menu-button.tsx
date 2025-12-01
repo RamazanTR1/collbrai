@@ -46,14 +46,14 @@ export default function MenuButton() {
 			<Button
 				variant="ghost"
 				onClick={() => setMenuOpen((prev) => !prev)}
-				className="flex items-center gap-2 text-white hover:text-green-light transition-colors"
+				className="flex items-center gap-1 sm:gap-2 text-white hover:text-green-light transition-colors sm:px-4"
 			>
 				{menuOpen ? (
-					<X className="w-5 h-5 text-green-light" />
+					<X className="w-5 h-5 text-green-light flex-shrink-0" />
 				) : (
-					<AlignJustify className="w-5 h-5 text-green-light" />
+					<AlignJustify className="w-5 h-5 text-green-light flex-shrink-0" />
 				)}
-				<span className="font-sans">{t("header.menu")}</span>
+				<span className="font-sans text-sm sm:text-base hidden sm:inline">{t("header.menu")}</span>
 			</Button>
 
 			<AnimatePresence>

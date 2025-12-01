@@ -33,8 +33,8 @@ export default async function HomePage({ params }: HomePageProps) {
 	return (
 		<main className="relative flex flex-col overflow-x-clip text-white hero-bg">
 			{/* Static Hero Section */}
-			<section className="relative z-10 flex lg:min-h-screen flex-col justify-center">
-				<div className="relative z-10 mx-auto flex w-full flex-col gap-10 px-18 py-34 lg:py-0 lg:px-24">
+			<section className="relative z-10 flex min-h-screen flex-col justify-center">
+				<div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24">
 					<div className="space-y-2 text-center uppercase tracking-[0.3em] text-sm text-white/60">
 						<p>{t("tagline")}</p>
 					</div>
@@ -48,26 +48,26 @@ export default async function HomePage({ params }: HomePageProps) {
 						<p className="max-w-2xl text-base text-white/80 lg:text-lg ">
 							{t("description")}
 						</p>
-						<Button className="group flex items-center gap-2 text-base">
+						<Button className="group flex items-center mt-5 gap-2 text-base">
 							{t("contactUs")}
 							<ArrowUpRight className="h-5! w-5! transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
 						</Button>
 					</div>
 
-					<div className="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
+					<div className="flex flex-col gap-10 mt-[110px] md:flex-row md:items-center md:justify-between">
 						<div className="flex flex-col gap-6 text-sm uppercase tracking-[0.2em] text-white/70">
 							<div className="flex items-center gap-4">
-								<div className="h-px w-10 bg-light-green" />
+								<div className="h-px w-10 bg-light-green flex-shrink-0" />
 								<p>{t("futureReady")}</p>
 							</div>
 							<div className="flex items-center gap-4">
-								<div className="h-px w-10 bg-light-green" />
+								<div className="h-px w-10 bg-light-green flex-shrink-0" />
 								<p>{t("support247")}</p>
 							</div>
 						</div>
 
 						<div className="flex items-center gap-4">
-							<div className="flex h-14 w-14 items-center justify-center rounded-full border border-light-green/40 bg-black-almost/60 text-light-green transition hover:scale-105">
+							<div className="flex h-14 w-14 items-center justify-center rounded-full border border-light-green/40 bg-black-almost/60 text-light-green transition hover:scale-105 flex-shrink-0">
 								<Play className="h-5! w-5! fill-light-green/30" />
 							</div>
 							<p className="text-sm text-white/70">{t("watchAI")}</p>

@@ -15,7 +15,7 @@ export default function ContactPage() {
 	return (
 		<main className="relative min-h-screen w-full overflow-hidden bg-black-almost py-22">
 			{/* Background Blur Effect */}
-			<div className="absolute top-0 left-1/2 -translate-x-1/2 opacity-60 pointer-events-none z-0">
+			<div className="absolute top-0 left-1/2 -translate-x-1/2 opacity-60 pointer-events-none z-[-10]">
 				<Image
 					src="/how-it-work-blur.svg"
 					alt="Background blur"

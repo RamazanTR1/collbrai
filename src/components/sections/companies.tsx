@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { Star } from "lucide-react";
 import { ComponentAsset } from "@/types/page.types";
@@ -11,8 +13,17 @@ export function Companies({ title, assets }: CompaniesProps) {
 	// Sort assets by sortOrder
 	const sortedAssets = [...assets].sort((a, b) => a.sortOrder - b.sortOrder);
 
+	// Duplicate assets multiple times for seamless infinite scroll
+	// We need enough duplicates to ensure smooth scrolling
+	const duplicatedAssets = [
+		...sortedAssets,
+		...sortedAssets,
+		...sortedAssets,
+		...sortedAssets,
+	];
+
 	return (
-		<section className="w-full">
+		<section className="w-full overflow-hidden">
 			<div className="mx-auto">
 				{/* Stars */}
 				<div className="mb-4 flex justify-center gap-1">
@@ -30,29 +41,70 @@ export function Companies({ title, assets }: CompaniesProps) {
 					<p className="mb-8 text-center text-sm text-light-gray">{title}</p>
 				)}
 
-				{/* Company Logos Grid */}
+				{/* Infinite Scrolling Company Logos */}
 				{sortedAssets.length > 0 && (
-					<div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-						{sortedAssets.map((componentAsset) => (
-							<div
-								key={componentAsset.id}
-								className="flex items-center justify-center"
-							>
-								<Image
-									src={componentAsset.asset.url}
-									alt={componentAsset.asset.title || "Company logo"}
-									width={120}
-									height={40}
-									className="h-auto max-h-8 w-auto object-contain opacity-70 grayscale transition-opacity hover:opacity-100 hover:grayscale-0"
-									style={{
-										maxWidth: "150px",
-									}}
-								/>
-							</div>
-						))}
+					<div className="relative overflow-hidden py-8">
+						<div className="flex animate-infinite-scroll gap-8 md:gap-12">
+							{/* First set */}
+							{duplicatedAssets.map((componentAsset, index) => (
+								<div
+									key={`first-${componentAsset.id}-${index}`}
+									className="flex min-w-0 flex-shrink-0 items-center justify-center"
+								>
+									<Image
+										src={componentAsset.asset.url}
+										alt={componentAsset.asset.title || "Company logo"}
+										width={220}
+										height={80}
+										className="h-auto w-auto object-contain opacity-70 grayscale transition-opacity hover:opacity-100 hover:grayscale-0"
+										style={{
+											maxWidth: "300px",
+										}}
+									/>
+								</div>
+							))}
+							{/* Duplicate set for seamless loop */}
+							{duplicatedAssets.map((componentAsset, index) => (
+								<div
+									key={`second-${componentAsset.id}-${index}`}
+									className="flex min-w-0 flex-shrink-0 items-center justify-center"
+								>
+									<Image
+										src={componentAsset.asset.url}
+										alt={componentAsset.asset.title || "Company logo"}
+										width={220}
+										height={80}
+										className="h-auto w-auto object-contain opacity-70 grayscale transition-opacity hover:opacity-100 hover:grayscale-0"
+										style={{
+											maxWidth: "300px",
+										}}
+									/>
+								</div>
+							))}
+						</div>
 					</div>
 				)}
 			</div>
+			<style jsx>{`
+				@keyframes infinite-scroll {
+					from {
+						transform: translateX(0);
+					}
+					to {
+						transform: translateX(-50%);
+					}
+				}
+
+				.animate-infinite-scroll {
+					animation: infinite-scroll 40s linear infinite;
+					width: fit-content;
+					display: flex;
+				}
+
+				.animate-infinite-scroll:hover {
+					animation-play-state: paused;
+				}
+			`}</style>
 		</section>
 	);
 }
