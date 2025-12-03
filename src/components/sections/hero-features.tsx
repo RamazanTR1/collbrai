@@ -82,6 +82,8 @@ export function HeroFeatures({
 											src={card.asset.url}
 											alt={card.asset.title || "Feature image"}
 											fill
+											loading="lazy"
+											sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 											className="object-cover"
 										/>
 										{/* Gradient Overlay for better text readability */}

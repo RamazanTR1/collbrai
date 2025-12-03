@@ -10,10 +10,12 @@
 		"contactUs": "Bize Ulaşın",
 		"futureReady": "Geleceğe Hazır Stratejiler",
 		"support247": "7/24 Müşteri Desteği",
-		"watchAI": "AI'yı çalışırken izleyin"
+		"watchAI": "AI'yı çalışırken izleyin",
+		"playVideo": "Videoyu oynat"
 	},
 	"header": {
 		"menu": "Menü",
+		"menuAriaLabel": "Navigasyon menüsünü aç/kapat",
 		"tools": "Araçlar",
 		"signUp": "Kayıt Ol",
 		"login": "Giriş Yap",
@@ -22,6 +24,8 @@
 	"footer": {
 		"subscribe": "Bültenimize abone olun",
 		"emailPlaceholder": "E-posta adresinizi girin",
+		"submitNewsletter": "Bültene abone ol",
+		"scrollToTop": "Yukarı kaydır",
 		"forApplicants": "Başvuranlar için",
 		"forCustomer": "Müşteriler için",
 		"info": "BİLGİ",
@@ -48,6 +52,10 @@
 	},
 	"heroCTA": {
 		"getStartedNow": "Hemen Başlayın"
+	},
+	"langSwitcher": {
+		"changeLanguage": "Dili değiştir",
+		"currentLanguage": "Mevcut dil"
 	},
 	"contact": {
 		"title": "İletişime Geçin",

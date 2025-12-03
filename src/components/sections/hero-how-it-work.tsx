@@ -77,9 +77,9 @@ export function HeroHowItWork({ title, assets }: HeroHowItWorkProps) {
 					</Button>
 					<div className="text-centerflex max-w-xl flex-col gap-6">
 						{title && (
-							<h3 className="text-3xl font-rethink leading-tight text-white sm:text-4xl lg:text-5xl">
+							<h2 className="text-3xl font-rethink leading-tight text-white sm:text-4xl lg:text-5xl">
 								{title}
-							</h3>
+							</h2>
 						)}
 					</div>
 					<div className="flex lg:hidden space-x-6 items-center justify-center w-full">
@@ -199,6 +199,8 @@ export function HeroHowItWork({ title, assets }: HeroHowItWorkProps) {
 																	src={asset.asset.url}
 																	alt={asset.asset.title || "How it works"}
 																	fill
+																	loading="lazy"
+																	sizes="(max-width: 1024px) 100vw, 50vw"
 																	className="object-cover"
 																/>
 															)

@@ -31,7 +31,7 @@ export default function Header() {
 					transition={{ duration: 0.6, delay: 0.4 }}
 					className="flex flex-col items-center flex-shrink-0 mx-2 sm:mx-4"
 				>
-					<Link href="/" className="group relative inline-block">
+					<Link href="/" className="group relative inline-block" aria-label="Collbrai - Home">
 						<motion.h1
 							whileHover={{ scale: 1.08 }}
 							transition={{ type: "spring", stiffness: 400, damping: 17 }}

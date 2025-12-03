@@ -5,11 +5,29 @@ import { PAGE_TYPES } from "@/constants/page-types";
 import { ComponentRenderer } from "@/components/sections/component-renderer";
 import { PageLayout } from "@/components/layouts/page-layout";
 import { getTranslations } from "next-intl/server";
+import { generateMetadata } from "@/lib/metadata";
+import { Suspense } from "react";
+import { PageSkeleton } from "@/components/ui/skeleton";
+import type { Metadata } from "next";
 
 interface HomePageProps {
 	params: Promise<{
 		locale: string;
 	}>;
+}
+
+export async function generateMetadata({
+	params,
+}: HomePageProps): Promise<Metadata> {
+	const { locale } = await params;
+	const t = await getTranslations({ locale, namespace: "hero" });
+	
+	return generateMetadata({
+		title: `${t("titleLine1")} ${t("titleLine2")}`,
+		description: t("description"),
+		locale: locale,
+		path: "",
+	});
 }
 
 export default async function HomePage({ params }: HomePageProps) {
@@ -31,7 +49,7 @@ export default async function HomePage({ params }: HomePageProps) {
 		page?.components.sort((a, b) => a.sortOrder - b.sortOrder) || [];
 
 	return (
-		<main className="relative flex flex-col overflow-x-clip text-white hero-bg">
+		<main className="relative flex flex-col overflow-x-clip text-white hero-bg" id="main-content">
 			{/* Static Hero Section */}
 			<section className="relative z-10 flex min-h-screen flex-col justify-center">
 				<div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24">
@@ -66,27 +84,33 @@ export default async function HomePage({ params }: HomePageProps) {
 							</div>
 						</div>
 
-						<div className="flex items-center gap-4">
-							<div className="flex h-14 w-14 items-center justify-center rounded-full border border-light-green/40 bg-black-almost/60 text-light-green transition hover:scale-105 flex-shrink-0">
-								<Play className="h-5! w-5! fill-light-green/30" />
-							</div>
-							<p className="text-sm text-white/70">{t("watchAI")}</p>
+					<button
+						type="button"
+						className="flex items-center gap-4 group"
+						aria-label={t("playVideo")}
+					>
+						<div className="flex h-14 w-14 items-center justify-center rounded-full border border-light-green/40 bg-black-almost/60 text-light-green transition group-hover:scale-105 flex-shrink-0">
+							<Play className="h-5! w-5! fill-light-green/30" />
 						</div>
+						<p className="text-sm text-white/70">{t("watchAI")}</p>
+					</button>
 					</div>
 				</div>
 			</section>
 
 			{/* Backend Components Section */}
 			{sortedComponents.length > 0 && (
-				<section className="w-full">
-					<PageLayout pageType={PAGE_TYPES.HOMEPAGE}>
-						{sortedComponents.map((componentWrapper) => (
-							<ComponentRenderer
-								key={componentWrapper.component.id}
-								componentWrapper={componentWrapper}
-							/>
-						))}
-					</PageLayout>
+				<section className="w-full" id="main-content">
+					<Suspense fallback={<PageSkeleton />}>
+						<PageLayout pageType={PAGE_TYPES.HOMEPAGE}>
+							{sortedComponents.map((componentWrapper) => (
+								<ComponentRenderer
+									key={componentWrapper.component.id}
+									componentWrapper={componentWrapper}
+								/>
+							))}
+						</PageLayout>
+					</Suspense>
 				</section>
 			)}
 		</main>

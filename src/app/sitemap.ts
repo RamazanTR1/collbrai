@@ -1,75 +1,90 @@
 import { MetadataRoute } from "next";
-import { getPagesServer } from "@/services/server/page-service";
-import { PAGE_TYPES } from "@/constants/page-types";
+import { getPages } from "@/services/server/page-service";
+import { Page } from "@/types/page.types";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const baseUrl = "https://collbrai.com";
 	const locales = ["tr", "en"];
-
-	// Static pages
-	const staticPages = [""];
+	const now = new Date();
 
 	const sitemap: MetadataRoute.Sitemap = [];
 
 	// Add static pages for each locale
 	locales.forEach((locale) => {
-		staticPages.forEach((page) => {
-			sitemap.push({
-				url: `${baseUrl}/${locale}${page}`,
-				lastModified: new Date(),
-				changeFrequency: page === "" ? "daily" : "weekly",
-				priority: page === "" ? 1 : 0.8,
-				alternates: {
-					languages: Object.fromEntries(
-						locales.map((l) => [l, `${baseUrl}/${l}${page}`])
-					),
-				},
-			});
+		// Homepage - highest priority
+		sitemap.push({
+			url: `${baseUrl}/${locale}`,
+			lastModified: now,
+			changeFrequency: "daily",
+			priority: 1.0,
+			alternates: {
+				languages: Object.fromEntries(
+					locales.map((l) => [l, `${baseUrl}/${l}`])
+				),
+			},
+		});
+
+		// Contact page - high priority
+		sitemap.push({
+			url: `${baseUrl}/${locale}/contact`,
+			lastModified: now,
+			changeFrequency: "monthly",
+			priority: 0.9,
+			alternates: {
+				languages: Object.fromEntries(
+					locales.map((l) => [l, `${baseUrl}/${l}/contact`])
+				),
+			},
 		});
 	});
 
 	// Fetch and add dynamic pages
 	try {
-		// Get all page types
-		const pageTypes = [
-			PAGE_TYPES.REPORTS,
-			PAGE_TYPES.OPINIONS,
-			PAGE_TYPES.NEWS,
-			PAGE_TYPES.SERVICES,
-			PAGE_TYPES.SECTORS,
-		];
+		// Fetch all pages (excluding homepage)
+		const response = await getPages({
+			page: 0,
+			size: 100,
+			sort: "createdAt,DESC",
+		});
 
-		for (const pageType of pageTypes) {
-			try {
-				const response = await getPagesServer({
-					type: pageType,
-					page: 0,
-					size: 100, // Get up to 100 pages per type
-					sort: "createdAt,DESC",
-				});
-
-				response.content.forEach((page) => {
-					locales.forEach((locale) => {
-						sitemap.push({
-							url: `${baseUrl}/${locale}/page/${page.slug}`,
-							lastModified: new Date(),
-							changeFrequency: "weekly",
-							priority: 0.7,
-							alternates: {
-								languages: Object.fromEntries(
-									locales.map((l) => [l, `${baseUrl}/${l}/page/${page.slug}`])
-								),
-							},
-						});
-					});
-				});
-			} catch {
-				// Continue with next page type if one fails
+		response.content.forEach((page: Page) => {
+			// Skip homepage as it's already in static pages
+			if (page.type === "Ana Sayfa") {
+				return;
 			}
-		}
-	} catch {
-		// Silently fail - return static pages only
+
+			// Determine priority based on page type or default
+			const priority = 0.7;
+			const changeFrequency: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never" = "weekly";
+
+			// You can adjust priorities based on page types here
+			// For example, if you have news pages, they might be daily
+			// if (page.type === "News") {
+			//   changeFrequency = "daily";
+			//   priority = 0.8;
+			// }
+
+			locales.forEach((locale) => {
+				sitemap.push({
+					url: `${baseUrl}/${locale}/pages/${page.slug}`,
+					lastModified: now,
+					changeFrequency,
+					priority,
+					alternates: {
+						languages: Object.fromEntries(
+							locales.map((l) => [l, `${baseUrl}/${l}/pages/${page.slug}`])
+						),
+					},
+				});
+			});
+		});
+	} catch (error) {
+		// Log error but continue with static pages
+		console.error("Error fetching pages for sitemap:", error);
 	}
+
+	// Sort sitemap by priority (highest first) for better SEO
+	sitemap.sort((a, b) => (b.priority || 0.5) - (a.priority || 0.5));
 
 	return sitemap;
 }

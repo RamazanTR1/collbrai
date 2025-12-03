@@ -56,6 +56,7 @@ export function Companies({ title, assets }: CompaniesProps) {
 										alt={componentAsset.asset.title || "Company logo"}
 										width={220}
 										height={80}
+										loading="lazy"
 										className="h-auto w-auto object-contain opacity-70 grayscale transition-opacity hover:opacity-100 hover:grayscale-0"
 										style={{
 											maxWidth: "300px",
@@ -74,6 +75,7 @@ export function Companies({ title, assets }: CompaniesProps) {
 										alt={componentAsset.asset.title || "Company logo"}
 										width={220}
 										height={80}
+										loading="lazy"
 										className="h-auto w-auto object-contain opacity-70 grayscale transition-opacity hover:opacity-100 hover:grayscale-0"
 										style={{
 											maxWidth: "300px",

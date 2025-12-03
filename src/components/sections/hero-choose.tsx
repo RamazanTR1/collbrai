@@ -41,9 +41,9 @@ export function HeroChoose({ title, description, assets }: HeroChooseProps) {
 							{t("heroChoose.whyChooseUs")}
 						</Button>
 						{title && (
-							<h3 className="text-3xl font-rethink font-semibold leading-tight text-white sm:text-4xl">
+							<h2 className="text-3xl font-rethink font-semibold leading-tight text-white sm:text-4xl">
 								{title}
-							</h3>
+							</h2>
 						)}
 						{description && (
 							<div
@@ -81,9 +81,9 @@ export function HeroChoose({ title, description, assets }: HeroChooseProps) {
 						{/* Right Section - Title and More Benefit Link */}
 						<div className="flex flex-col items-end justify-start">
 							{title && (
-								<h3 className="mb-4 text-right text-3xl font-rethink font-semibold leading-tight text-white sm:text-4xl lg:text-5xl">
+								<h2 className="mb-4 text-right text-3xl font-rethink font-semibold leading-tight text-white sm:text-4xl lg:text-5xl">
 									{title}
-								</h3>
+								</h2>
 							)}
 							<Button
 								variant="ghost"
@@ -109,9 +109,9 @@ export function HeroChoose({ title, description, assets }: HeroChooseProps) {
 								{/* Card Title - Top */}
 								{card.asset.title && (
 									<div className="p-6">
-										<h4 className="text-xl font-semibold text-white">
+										<h3 className="text-xl font-semibold text-white">
 											{card.asset.title}
-										</h4>
+										</h3>
 									</div>
 								)}
 
@@ -132,6 +132,8 @@ export function HeroChoose({ title, description, assets }: HeroChooseProps) {
 												src={card.asset.url}
 												alt={card.asset.title || "Feature image"}
 												fill
+												loading="lazy"
+												sizes="(max-width: 1024px) 100vw, 50vw"
 												className="rounded-lg object-cover"
 											/>
 										)}

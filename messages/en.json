@@ -10,10 +10,12 @@
 		"contactUs": "Contact us",
 		"futureReady": "Future-Ready Strategies",
 		"support247": "24/7 Customer Support",
-		"watchAI": "Watch AI in action"
+		"watchAI": "Watch AI in action",
+		"playVideo": "Play video"
 	},
 	"header": {
 		"menu": "Menu",
+		"menuAriaLabel": "Toggle navigation menu",
 		"tools": "Tools",
 		"signUp": "Sign Up",
 		"login": "Login",
@@ -22,6 +24,8 @@
 	"footer": {
 		"subscribe": "Subscribe to our newsletter",
 		"emailPlaceholder": "Enter your email",
+		"submitNewsletter": "Subscribe to newsletter",
+		"scrollToTop": "Scroll to top",
 		"forApplicants": "For Applicants",
 		"forCustomer": "For Customers",
 		"info": "INFO",
@@ -48,6 +52,10 @@
 	},
 	"heroCTA": {
 		"getStartedNow": "Get Started Now"
+	},
+	"langSwitcher": {
+		"changeLanguage": "Change language",
+		"currentLanguage": "Current language"
 	},
 	"contact": {
 		"title": "Get in Touch",

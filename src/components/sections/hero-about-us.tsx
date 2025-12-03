@@ -141,6 +141,8 @@ export function HeroAboutUs({ title, assets }: HeroAboutUsProps) {
 											src={currentAsset.asset.url}
 											alt={currentAsset.asset.title || "Hero image"}
 											fill
+											loading="lazy"
+											sizes="(max-width: 1024px) 100vw, 50vw"
 											className="object-cover"
 										/>
 									</motion.div>

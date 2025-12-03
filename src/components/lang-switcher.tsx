@@ -34,6 +34,7 @@ export default function LangSwitcher() {
 				<Button
 					variant="ghost"
 					className="flex items-center gap-1 text-white hover:text-green-light transition-colors font-sans px-2 sm:px-3 md:px-4 py-2 h-auto text-sm sm:text-base"
+					aria-label={`${localeLabels[currentLocale as "en" | "tr"]} - Change language`}
 				>
 					<span className="min-w-[2rem] text-center">{localeLabels[currentLocale as "en" | "tr"]}</span>
 					<ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />

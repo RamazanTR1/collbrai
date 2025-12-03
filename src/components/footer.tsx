@@ -5,6 +5,7 @@ import { ArrowRight, ArrowUp, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import { Link } from "@/i18n/navigation";
 
 export default function Footer() {
 	const t = useTranslations("footer");
@@ -43,6 +44,7 @@ export default function Footer() {
 								variant="ghost"
 								size="icon"
 								className="text-white hover:text-light-green hover:bg-transparent"
+								aria-label={t("submitNewsletter")}
 							>
 								<ArrowRight className="w-5 h-5" />
 							</Button>
@@ -67,22 +69,23 @@ export default function Footer() {
 						<div className="grid grid-cols-3 gap-8">
 							{/* INFO Column */}
 							<div>
-								<h4 className="text-light-green text-sm font-semibold uppercase mb-4">
+								<h3 className="text-light-green text-sm font-semibold uppercase mb-4">
 									{t("info")}
-								</h4>
+								</h3>
 								<ul className="space-y-3">
 									<li>
-										<a
-											href="#"
+										<Link
+											href="/contact"
 											className="text-white text-sm hover:text-light-green transition-colors"
 										>
 											{t("contactUs")}
-										</a>
+										</Link>
 									</li>
 									<li>
 										<a
 											href="#"
 											className="text-white text-sm hover:text-light-green transition-colors"
+											aria-label={t("shippingInformation")}
 										>
 											{t("shippingInformation")}
 										</a>
@@ -91,9 +94,10 @@ export default function Footer() {
 										<a
 											href="#"
 											className="text-white text-sm hover:text-light-green transition-colors flex items-center gap-1"
+											aria-label={`${t("faqs")} - External link`}
 										>
 											{t("faqs")}
-											<ExternalLink className="w-3 h-3" />
+											<ExternalLink className="w-3 h-3" aria-hidden="true" />
 										</a>
 									</li>
 								</ul>
@@ -101,14 +105,15 @@ export default function Footer() {
 
 							{/* ADDITIONAL LINK Column */}
 							<div>
-								<h4 className="text-light-green text-sm font-semibold uppercase mb-4">
+								<h3 className="text-light-green text-sm font-semibold uppercase mb-4">
 									{t("additionalLink")}
-								</h4>
+								</h3>
 								<ul className="space-y-3">
 									<li>
 										<a
 											href="#"
 											className="text-white text-sm hover:text-light-green transition-colors"
+											aria-label={t("productCustomization")}
 										>
 											{t("productCustomization")}
 										</a>
@@ -117,6 +122,7 @@ export default function Footer() {
 										<a
 											href="#"
 											className="text-white text-sm hover:text-light-green transition-colors"
+											aria-label={t("community")}
 										>
 											{t("community")}
 										</a>
@@ -125,6 +131,7 @@ export default function Footer() {
 										<a
 											href="#"
 											className="text-white text-sm hover:text-light-green transition-colors"
+											aria-label={t("corporateResponsibility")}
 										>
 											{t("corporateResponsibility")}
 										</a>
@@ -137,6 +144,7 @@ export default function Footer() {
 									variant="ghost"
 									size="icon"
 									className="rounded-full border border-white/20 text-white hover:text-light-green hover:bg-very-dark-green size-16"
+									aria-label={t("scrollToTop")}
 								>
 									<ArrowUp className="size-8!" />
 								</Button>

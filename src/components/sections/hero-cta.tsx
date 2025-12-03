@@ -65,6 +65,8 @@ export function HeroCTA({ title, description, assets }: HeroCTAProps) {
 								src={secondMedia.asset.url}
 								alt={secondMedia.asset.title || "Hero media"}
 								fill
+								loading="lazy"
+								sizes="(max-width: 1024px) 100vw, 33vw"
 								className="rounded-[32px] object-cover p-4"
 							/>
 						)}
