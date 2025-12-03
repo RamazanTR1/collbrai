@@ -35,7 +35,15 @@
 		"additionalLink": "ADDITIONAL LINK",
 		"productCustomization": "Product Customization",
 		"community": "Community",
-		"corporateResponsibility": "Corporate Responsibility"
+		"corporateResponsibility": "Corporate Responsibility",
+		"termsOfUse": "Terms of Use",
+		"privacyPolicy": "Privacy Policy",
+		"cookiePolicy": "Cookie Policy",
+		"notificationSubscribers": {
+			"success": "Your subscription has been successfully saved.",
+			"error": "Your subscription could not be saved."
+		},
+		"invalidEmail": "Invalid email address"
 	},
 	"heroAboutUs": {
 		"aboutUs": "About Us"
@@ -81,5 +89,15 @@
 			"phone": "Phone",
 			"address": "Address"
 		}
+	},
+	"legal": {
+		"termsOfUse": "Terms of Use",
+		"privacyPolicy": "Privacy Policy",
+		"cookiePolicy": "Cookie Policy"
+	},
+	"notFound": {
+		"title": "Page Not Found",
+		"description": "The page you are looking for does not exist or has been moved.",
+		"goHome": "Go Home"
 	}
 }

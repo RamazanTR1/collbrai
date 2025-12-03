@@ -9,6 +9,8 @@ import { generateMetadata as genMetadata } from "@/lib/metadata";
 import { StructuredData } from "@/components/structured-data";
 import { SkipLink } from "@/components/skip-link";
 import { ErrorBoundary } from "@/components/error-boundary";
+import { Toaster } from "@/components/ui/sonner";
+import QueryProvider from "@/providers/query-client-provider";
 
 export function generateMetadata({
 	params,
@@ -47,11 +49,14 @@ export default async function LocaleLayout({
 	return (
 		<NextIntlClientProvider locale={locale} messages={messages}>
 			<ErrorBoundary>
-				<SkipLink />
-				<StructuredData type="Organization" locale={locale} />
-				<Header />
-				{children}
-				<Footer />
+				<QueryProvider>
+					<SkipLink />
+					<StructuredData type="Organization" locale={locale} />
+					<Header />
+					{children}
+					<Footer />
+					<Toaster />
+				</QueryProvider>
 			</ErrorBoundary>
 		</NextIntlClientProvider>
 	);
