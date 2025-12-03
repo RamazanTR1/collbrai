@@ -5,7 +5,7 @@ import { PAGE_TYPES } from "@/constants/page-types";
 import { ComponentRenderer } from "@/components/sections/component-renderer";
 import { PageLayout } from "@/components/layouts/page-layout";
 import { getTranslations } from "next-intl/server";
-import { generateMetadata } from "@/lib/metadata";
+import { generateMetadata as generatePageMetadata } from "@/lib/metadata";
 import { Suspense } from "react";
 import { PageSkeleton } from "@/components/ui/skeleton";
 import type { Metadata } from "next";
@@ -22,7 +22,7 @@ export async function generateMetadata({
 	const { locale } = await params;
 	const t = await getTranslations({ locale, namespace: "hero" });
 	
-	return generateMetadata({
+	return generatePageMetadata({
 		title: `${t("titleLine1")} ${t("titleLine2")}`,
 		description: t("description"),
 		locale: locale,

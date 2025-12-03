@@ -26,7 +26,7 @@ export async function generateMetadata({
 		
 		return genMetadata({
 			title: page.title || "Page",
-			description: page.excerpt || page.description || undefined,
+			description: page.metaDescription || page.excerpt || undefined,
 			locale: locale,
 			path: `/pages/${slug}`,
 		});
