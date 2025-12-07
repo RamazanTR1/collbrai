@@ -1,7 +1,7 @@
-import { routing } from "@/i18n/routing";
+import { baseUrl } from "@/lib/metadata";
 
 interface StructuredDataProps {
-	type: "Organization" | "BreadcrumbList";
+	type: "Organization" | "BreadcrumbList" | "SoftwareApplication";
 	locale?: string;
 	breadcrumbs?: Array<{ name: string; url: string }>;
 }
@@ -11,7 +11,6 @@ export function StructuredData({
 	locale = "en",
 	breadcrumbs,
 }: StructuredDataProps) {
-	const baseUrl = "https://collbrai.com";
 
 	if (type === "Organization") {
 		const organizationSchema = {
@@ -19,7 +18,7 @@ export function StructuredData({
 			"@type": "Organization",
 			name: "Collbrai",
 			url: baseUrl,
-			logo: `${baseUrl}/logo.png`,
+			logo: `${baseUrl}/icon.png`, // Updated to use icon as logo fallback
 			contactPoint: {
 				"@type": "ContactPoint",
 				email: "hello@collbrai.com",
@@ -34,6 +33,33 @@ export function StructuredData({
 			<script
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+			/>
+		);
+	}
+
+	if (type === "SoftwareApplication") {
+		const softwareSchema = {
+			"@context": "https://schema.org",
+			"@type": "SoftwareApplication",
+			name: "Collbrai",
+			applicationCategory: "BusinessApplication",
+			operatingSystem: "Web",
+			description:
+				locale === "tr"
+					? "İşletmeler için ölçeklenebilir yapay zeka ve otomasyon çözümleri."
+					: "Scalable AI and automation solutions for businesses.",
+			url: baseUrl,
+			offers: {
+				"@type": "Offer",
+				price: "0",
+				priceCurrency: "USD",
+			},
+		};
+
+		return (
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
 			/>
 		);
 	}

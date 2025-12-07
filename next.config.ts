@@ -5,6 +5,9 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
 	/* config options here */
+	experimental: {
+		optimizePackageImports: ["lucide-react"],
+	},
 	images: {
 		// Allow unoptimized images in development for localhost
 		...(process.env.NODE_ENV === "development" && {

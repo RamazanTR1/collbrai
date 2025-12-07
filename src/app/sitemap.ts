@@ -1,10 +1,11 @@
 import { MetadataRoute } from "next";
 import { getPages } from "@/services/server/page-service";
 import { Page } from "@/types/page.types";
+import { baseUrl } from "@/lib/metadata";
+import { routing } from "@/i18n/routing";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-	const baseUrl = "https://collbrai.com";
-	const locales = ["tr", "en"];
+	const locales = routing.locales;
 	const now = new Date();
 
 	const sitemap: MetadataRoute.Sitemap = [];
@@ -56,13 +57,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 			// Determine priority based on page type or default
 			const priority = 0.7;
 			const changeFrequency: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never" = "weekly";
-
-			// You can adjust priorities based on page types here
-			// For example, if you have news pages, they might be daily
-			// if (page.type === "News") {
-			//   changeFrequency = "daily";
-			//   priority = 0.8;
-			// }
 
 			locales.forEach((locale) => {
 				sitemap.push({

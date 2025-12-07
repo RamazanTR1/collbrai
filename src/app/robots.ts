@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { baseUrl } from "@/lib/metadata";
 
 export default function robots(): MetadataRoute.Robots {
 	return {
@@ -9,6 +10,7 @@ export default function robots(): MetadataRoute.Robots {
 				disallow: ["/api/", "/_next/"],
 			},
 		],
-		sitemap: "https://collbrai.com/sitemap.xml",
+		sitemap: `${baseUrl}/sitemap.xml`,
+		host: baseUrl,
 	};
 }

@@ -3,7 +3,7 @@ import { getPageBySlug } from "@/services/server/page-service";
 import { ComponentRenderer } from "@/components/sections/component-renderer";
 import { PageLayout } from "@/components/layouts/page-layout";
 import { isValidPageType } from "@/constants/page-types";
-import { generateMetadata as genMetadata } from "@/lib/metadata";
+import { generateMetadata as genMetadata, baseUrl } from "@/lib/metadata";
 import { StructuredData } from "@/components/structured-data";
 import { Suspense } from "react";
 import { PageSkeleton } from "@/components/ui/skeleton";
@@ -61,7 +61,6 @@ export default async function DynamicPage({ params }: PageProps) {
 	// Determine page type for layout
 	const pageType = isValidPageType(page.type) ? page.type : null;
 
-	const baseUrl = "https://collbrai.com";
 	const breadcrumbs = [
 		{ name: "Home", url: `${baseUrl}/${locale}` },
 		{ name: page.name || page.title, url: `${baseUrl}/${locale}/pages/${slug}` },

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
 
-const baseUrl = "https://collbrai.com";
-const siteName = "Collbrai";
+export const baseUrl = "https://collbrai.com";
+export const siteName = "Collbrai";
 const defaultDescription = {
 	en: "Scale With Smart AI Systems - Whether you're a startup or enterprise, our AI grows with you—offering scalable automation and optimization tools.",
 	tr: "Akıllı AI Sistemleri ile Ölçeklenin - İster startup ister kurumsal olun, AI'mız sizinle birlikte büyür—ölçeklenebilir otomasyon ve optimizasyon araçları sunar.",
@@ -27,7 +27,7 @@ export function generateMetadata({
 }: MetadataOptions): Metadata {
 	const localeDescription = description || defaultDescription[locale as "en" | "tr"] || defaultDescription.en;
 	const url = `${baseUrl}/${locale}${path}`;
-	const ogImage = image || `${baseUrl}/og-image.jpg`;
+	const ogImage = image || `${baseUrl}/opengraph-image`;
 
 	const metadata: Metadata = {
 		metadataBase: new URL(baseUrl),
