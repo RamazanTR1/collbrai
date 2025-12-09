@@ -16,7 +16,7 @@ export function ComponentRenderer({
 }: ComponentRendererProps) {
 	const { component } = componentWrapper;
 	const ref = useRef(null);
-	const isInView = useInView(ref, { once: true, margin: "-100px" });
+	const isInView = useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
 
 	// Sort assets by sortOrder before passing to component
 	const sortedAssets = [...component.assets].sort(

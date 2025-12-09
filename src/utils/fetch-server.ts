@@ -43,6 +43,9 @@ export const fetchServer = async <T, U>(
 			requestOptions.method = "GET";
 		}
 
+		// Disable caching by default for dynamic content
+		requestOptions.cache = "no-store";
+
 		// Handle request body
 		if (headers.get("Content-Type") === "multipart/form-data") {
 			headers.delete("Content-Type");
