@@ -10,9 +10,7 @@ const nextConfig: NextConfig = {
 	},
 	images: {
 		// Allow unoptimized images in development for localhost
-		...(process.env.NODE_ENV === "development" && {
-			unoptimized: true,
-		}),
+		unoptimized: true,
 		remotePatterns: [
 			{
 				protocol: "http",

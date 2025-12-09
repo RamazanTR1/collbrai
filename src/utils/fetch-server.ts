@@ -43,9 +43,6 @@ export const fetchServer = async <T, U>(
 			requestOptions.method = "GET";
 		}
 
-		// Disable caching by default for dynamic content
-		requestOptions.cache = "no-store";
-
 		// Handle request body
 		if (headers.get("Content-Type") === "multipart/form-data") {
 			headers.delete("Content-Type");
@@ -89,41 +86,50 @@ export const fetchServer = async <T, U>(
 		const apiUrl = url.startsWith("/api/v1") ? url : `/api/v1${url}`;
 		const requestUrl = `${env.NEXT_PUBLIC_API_URL}${apiUrl}`;
 
-		// Make request
-		const response = await fetch(requestUrl, requestOptions);
+		// Setup timeout (15 seconds)
+		const controller = new AbortController();
+		const timeoutId = setTimeout(() => controller.abort(), 15000);
+		requestOptions.signal = controller.signal;
 
-		// Handle error responses
-		if (response.status < 200 || response.status >= 400) {
-			const errorText = await response.text().catch(() => "");
-			let errorMessage =
-				errorText || `Request failed with status ${response.status}`;
+		try {
+			// Make request
+			const response = await fetch(requestUrl, requestOptions);
 
-			// Try to parse error as JSON
-			try {
-				const errorData = JSON.parse(errorText) as {
-					message?: string;
-					error?: string;
-				};
-				errorMessage = errorData.message || errorData.error || errorMessage;
-			} catch {
-				// Use text as is
+			// Handle error responses
+			if (response.status < 200 || response.status >= 400) {
+				const errorText = await response.text().catch(() => "");
+				let errorMessage =
+					errorText || `Request failed with status ${response.status}`;
+
+				// Try to parse error as JSON
+				try {
+					const errorData = JSON.parse(errorText) as {
+						message?: string;
+						error?: string;
+					};
+					errorMessage = errorData.message || errorData.error || errorMessage;
+				} catch {
+					// Use text as is
+				}
+
+				// Throw appropriate error type
+				if (response.status === 401) {
+					throw new UnauthorizedError(errorMessage);
+				}
+
+				throw new NetworkError(errorMessage, response.status);
 			}
 
-			// Throw appropriate error type
-			if (response.status === 401) {
-				throw new UnauthorizedError(errorMessage);
+			// Parse response
+			const contentType = response.headers.get("content-type");
+			if (contentType?.includes("application/json")) {
+				return (await response.json()) as U;
 			}
 
-			throw new NetworkError(errorMessage, response.status);
+			return response as unknown as U;
+		} finally {
+			clearTimeout(timeoutId);
 		}
-
-		// Parse response
-		const contentType = response.headers.get("content-type");
-		if (contentType?.includes("application/json")) {
-			return (await response.json()) as U;
-		}
-
-		return response as unknown as U;
 	} catch (error) {
 		errorHandler.handle(error, {
 			component: "fetchServer",
