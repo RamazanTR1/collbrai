@@ -198,10 +198,11 @@ export function HeroHowItWork({ title, assets }: HeroHowItWorkProps) {
 																<Image
 																	src={asset.asset.url}
 																	alt={asset.asset.title || "How it works"}
-																	fill
+																	width={asset.asset.width}
+																	height={asset.asset.height}
+																	unoptimized
 																	loading="lazy"
-																	sizes="(max-width: 1024px) 100vw, 50vw"
-																	className="object-cover"
+																	className="h-full w-full object-cover"
 																/>
 															)
 														) : (

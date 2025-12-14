@@ -47,23 +47,23 @@ export function Companies({ title, assets }: CompaniesProps) {
 						<div className="flex animate-infinite-scroll gap-8 md:gap-12">
 							{/* First set */}
 							{duplicatedAssets.map((componentAsset, index) => (
-								<div
-									key={`first-${componentAsset.id}-${index}`}
-									className="flex min-w-0 flex-shrink-0 items-center justify-center"
-								>
-									<Image
-										src={componentAsset.asset.url}
-										alt={componentAsset.asset.title || "Company logo"}
-										width={220}
-										height={80}
-										loading="lazy"
-										className="h-auto w-auto object-contain opacity-70 grayscale transition-opacity hover:opacity-100 hover:grayscale-0"
-										style={{
-											maxWidth: "300px",
-										}}
-									/>
-								</div>
-							))}
+								                                <div
+								                                    key={`first-${componentAsset.id}-${index}`}
+								                                    className="flex min-w-0 flex-shrink-0 items-center justify-center"
+								                                >
+								                                    <Image
+								                                        src={componentAsset.asset.url}
+								                                        alt={componentAsset.asset.title || "Company logo"}
+								                                        width={220}
+								                                        height={80}
+								                                        unoptimized
+								                                        loading="lazy"
+								                                        className="h-auto w-auto object-contain opacity-70 grayscale transition-opacity hover:opacity-100 hover:grayscale-0"
+								                                        style={{
+								                                            maxWidth: "300px",
+								                                        }}
+								                                    />
+								                                </div>							))}
 							{/* Duplicate set for seamless loop */}
 							{duplicatedAssets.map((componentAsset, index) => (
 								<div
@@ -75,6 +75,7 @@ export function Companies({ title, assets }: CompaniesProps) {
 										alt={componentAsset.asset.title || "Company logo"}
 										width={220}
 										height={80}
+										unoptimized
 										loading="lazy"
 										className="h-auto w-auto object-contain opacity-70 grayscale transition-opacity hover:opacity-100 hover:grayscale-0"
 										style={{

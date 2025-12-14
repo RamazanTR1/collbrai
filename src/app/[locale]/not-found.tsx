@@ -17,6 +17,7 @@ export default async function NotFound() {
 					alt="Background blur"
 					width={1006}
 					height={698}
+					unoptimized
 					className="object-contain"
 					priority
 				/>
@@ -30,6 +31,7 @@ export default async function NotFound() {
 						alt="Decoration"
 						width={951}
 						height={119}
+						unoptimized
 						className="w-full h-auto"
 						priority
 					/>

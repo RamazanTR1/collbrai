@@ -20,6 +20,7 @@ export default async function TermsOfUsePage({
 					alt="Background blur"
 					width={1006}
 					height={698}
+					unoptimized
 					className="object-cover"
 					priority
 				/>
@@ -34,6 +35,7 @@ export default async function TermsOfUsePage({
 							alt="Decoration"
 							width={951}
 							height={119}
+							unoptimized
 							className="w-full h-auto"
 						/>
 					</div>

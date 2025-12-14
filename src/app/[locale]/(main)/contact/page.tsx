@@ -40,6 +40,7 @@ export default async function ContactPage({
 					alt="Background blur"
 					width={1006}
 					height={698}
+					unoptimized
 					loading="lazy"
 					className="object-cover"
 				/>
@@ -54,6 +55,7 @@ export default async function ContactPage({
 							alt="Decoration"
 							width={951}
 							height={119}
+							unoptimized
 							loading="lazy"
 							className="w-full h-auto"
 						/>

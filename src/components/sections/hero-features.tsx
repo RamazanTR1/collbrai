@@ -81,10 +81,11 @@ export function HeroFeatures({
 										<Image
 											src={card.asset.url}
 											alt={card.asset.title || "Feature image"}
-											fill
+											width={card.asset.width}
+											height={card.asset.height}
+											unoptimized
 											loading="lazy"
-											sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-											className="object-cover"
+											className="h-full w-full object-cover"
 										/>
 										{/* Gradient Overlay for better text readability */}
 										<div className="absolute inset-0 bg-linear-to-t from-very-dark-green/70 via-very-dark-green/50 to-transparent" />

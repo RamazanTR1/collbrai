@@ -50,8 +50,10 @@ export function HeroCTA({ title, description, assets }: HeroCTAProps) {
 							<Image
 								src={firstMedia.asset.url}
 								alt={firstMedia.asset.title || "Hero media"}
-								fill
-								className="rounded-[32px] object-cover border border-dark-green"
+								width={firstMedia.asset.width}
+								height={firstMedia.asset.height}
+								unoptimized
+								className="h-full w-full rounded-[32px] object-cover border border-dark-green"
 							/>
 						)}
 					</div>
@@ -64,10 +66,11 @@ export function HeroCTA({ title, description, assets }: HeroCTAProps) {
 							<Image
 								src={secondMedia.asset.url}
 								alt={secondMedia.asset.title || "Hero media"}
-								fill
+								width={secondMedia.asset.width}
+								height={secondMedia.asset.height}
+								unoptimized
 								loading="lazy"
-								sizes="(max-width: 1024px) 100vw, 33vw"
-								className="rounded-[32px] object-cover p-4"
+								className="h-full w-full rounded-[32px] object-cover p-4"
 							/>
 						)}
 					</div>

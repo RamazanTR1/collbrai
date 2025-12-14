@@ -131,10 +131,11 @@ export function HeroChoose({ title, description, assets }: HeroChooseProps) {
 											<Image
 												src={card.asset.url}
 												alt={card.asset.title || "Feature image"}
-												fill
+												width={card.asset.width}
+												height={card.asset.height}
+												unoptimized
 												loading="lazy"
-												sizes="(max-width: 1024px) 100vw, 50vw"
-												className="rounded-lg object-cover"
+												className="h-full w-full rounded-lg object-cover"
 											/>
 										)}
 									</div>

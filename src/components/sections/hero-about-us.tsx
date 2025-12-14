@@ -140,10 +140,11 @@ export function HeroAboutUs({ title, assets }: HeroAboutUsProps) {
 										<Image
 											src={currentAsset.asset.url}
 											alt={currentAsset.asset.title || "Hero image"}
-											fill
+											width={currentAsset.asset.width}
+											height={currentAsset.asset.height}
+											unoptimized
 											loading="lazy"
-											sizes="(max-width: 1024px) 100vw, 50vw"
-											className="object-cover"
+											className="h-full w-full object-cover"
 										/>
 									</motion.div>
 								)}
