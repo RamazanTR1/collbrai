@@ -9,8 +9,6 @@ const nextConfig: NextConfig = {
 		optimizePackageImports: ["lucide-react"],
 	},
 	images: {
-		// Allow unoptimized images in development for localhost
-		unoptimized: true,
 		remotePatterns: [
 			{
 				protocol: "http",
@@ -38,14 +36,6 @@ const nextConfig: NextConfig = {
 			{
 				protocol: "https",
 				hostname: "panel.collbrai.com",
-				port: "",
-				pathname: "/uploads/**",
-			},
-			{
-				protocol: "https",
-				hostname: "panel.collbrai.com",
-				port: "",
-				pathname: "//uploads/**",
 			},
 		],
 	},
